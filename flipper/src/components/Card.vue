@@ -82,12 +82,19 @@ i.backFlipBtn {
   perspective: 1000;
 }
 .flip-container {
-  min-height: 120px;
+  position: relative;
+  max-width:100%;
+  max-height:100%;
+  overflow:auto;
 }
 .flipper {
   -moz-transform: perspective(1000px);
   -moz-transform-style: preserve-3d;
   position: relative;
+  max-width:100%;
+  max-height:100%;
+  overflow:auto;
+
 }
 
 .front,
@@ -116,7 +123,7 @@ i.backFlipBtn {
   -o-transform: rotateY(-180deg);
   -ms-transform: rotateY(-180deg);
   transform: rotateY(-180deg);
-  position: absolute;
+  position: relative;
 
 }
 .flip-container.flipped .back {
@@ -136,6 +143,7 @@ i.backFlipBtn {
 }
 .front {
   z-index: 2;
+  
 }
 
 

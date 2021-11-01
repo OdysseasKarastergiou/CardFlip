@@ -3,10 +3,10 @@
     <header>
       <h1>FlipCard App</h1>
     </header>
-    <transition-group name="list" tag="Card">
-      <Card class="list-item" v-bind:flippedF="flippedF" @freebetEvent="offeredFreebet" @cancelEvent="freebetCanceled" v-for="card in cards" :key="card">
+    <transition-group name="list-complete">
+      <Card class="list-complete-item" v-bind:flippedF="flippedF" @freebetEvent="offeredFreebet" @cancelEvent="freebetCanceled" v-for="card in cards" :key="card">
         <template slot="front">
-          <div class="grid grid-cols-2">
+          <div class="list-complete-item grid grid-cols-1">
             <div>
               <div class="flex text-purple-500 text-3xl font-bold">
                 <img src="https://pm.ua/content/uploads/Free_Bet_10_UAH_2_1_23c98cc95d.png" class="w-12">FREEBET OFFER</div>
@@ -17,7 +17,7 @@
               </div>
         </template>
         <template slot="back">
-          <div class="divide-y-2 divide-black md:divide-solid">
+          <div class="list-complete-item divide-y-2 divide-black md:divide-solid">
             <div>
               <div class="m-6">
                 <span class="flex text-black text-2xl font-bold">Freebet with Quick Pick</span><br />
@@ -91,6 +91,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
 }
 .luckyN{
   --tw-text-opacity: 1;
@@ -107,17 +108,23 @@ export default {
 }
 
 
-.board{
-  display: grid;
-  justify-content: center;
+.list-complete-item {
+  transition: all 1s;
+  display: inline-block;
+  margin-right: 2px;  
+  position: relative;
+  
+}
+.list-complete-enter, .list-complete-leave-to
+/* .list-complete-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(20px);
+  position:absolute;
+}
+.list-complete-leave-active {
+  position: absolute;
 }
 
-/* transitions */
-
-.list-item {
-  margin-right: 700px;
-  margin-left: 700px;
-}
 
 
 </style>
